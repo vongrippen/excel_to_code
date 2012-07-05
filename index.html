@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="ExcelToCode : Excel spreadsheets, compiled to run-anywhere C" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>ExcelToCode</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/tamc/excel_to_code">View on GitHub</a>
+
+          <h1 id="project_title">ExcelToCode</h1>
+          <h2 id="project_tagline">Excel spreadsheets, compiled to run-anywhere C</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/tamc/excel_to_code/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/tamc/excel_to_code/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>Excel To Code</h1>
+
+<p>Converts some excel spreadsheets (.xlsx, not .xls) into C. This allows the excel spreadsheets to be run programatically, without excel, anywhere that compiles basic dependency free C code. This can be handy to allow excel to be used as the calculating engine behind websites (e.g., The <a href="http://2050-calculator-tool.decc.gsi.gov.uk">DECC 2050 Pathways Calculator</a> is powered by this 50+ page <a href="http://www.decc.gov.uk/assets/decc/11/tackling-climate-change/2050/3696-2050-calculator-with-costs.XLSX">excel model</a>).</p>
+
+<h2>Prepare</h2>
+
+<p>Make sure you have ruby 1.9.2 or later installed, a copy of git, and a basic C compiler</p>
+
+<h2>Install</h2>
+
+<div class="highlight">
+<pre>gem install bundler <span class="c"># May need to use sudo</span>
+git clone https://github.com/tamc/excel_to_code.git
+<span class="nb">cd </span>excel_to_code
+bundle
+</pre>
+</div>
+
+
+<h2>Run</h2>
+
+<p>Can be run as a command line:</p>
+
+<pre><code>./bin/excel_to_c &lt;excel_file_name&gt;
+</code></pre>
+
+<p>… with several options:   </p>
+
+<pre><code>./bin/excel_to_c --compile --run-tests --settable &lt;name of input worksheet&gt; --prune-except &lt;name of output worksheet&gt; &lt;excel file name&gt; 
+</code></pre>
+
+<p>… or as a ruby library, see the <a href="https://github.com/tamc/excel_to_code/tree/master/examples">examples</a> directory for ideas.</p>
+
+<h2>Know the limits</h2>
+
+<ol>
+<li>Not tested at all on Windows</li>
+<li>INDIRECT formula must be convertable at runtime into a standard formula</li>
+<li>Doesn't implement all functions (just the handful of functions with an R or C after their name in <a href="https://github.com/tamc/excel_to_code/blob/master/doc/Which_functions_are_implemented.md">this list</a> )</li>
+<li>Doesn't implement references that involve range unions and lists</li>
+<li>Sometimes gives cells as being empty, when excel would give the cell as having a numeric value of zero</li>
+</ol>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">ExcelToCode maintained by <a href="https://github.com/tamc">tamc</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
