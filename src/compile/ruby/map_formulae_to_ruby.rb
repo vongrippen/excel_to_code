@@ -33,6 +33,7 @@ class MapFormulaeToRuby < MapValuesToRuby
     'MAX' => 'max',
     'MIN' => 'min',
     'MOD' => 'mod',
+    'OR' => 'excel_or',
     'PI' => 'pi',
     'PMT' => 'pmt',
     'ROUND' => 'round',
