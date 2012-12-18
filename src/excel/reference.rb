@@ -37,8 +37,10 @@ class Reference < String
     return if @excel_variables_calculated
     self =~ /(\$)?([A-Za-z]{1,3})(\$)?([0-9]+)/
     @excel_fixed_column, @excel_column, @excel_fixed_row, @excel_row = $1, $2, $3, $4
-    @excel_row_number = @excel_row.to_i
-    @excel_column_number = @@column_number_for_column[@excel_column]
+    unless @excel_column == nil
+      @excel_row_number = @excel_row.to_i
+      @excel_column_number = @@column_number_for_column[@excel_column]
+    end
     @excel_variables_calculated = true
   end
     
